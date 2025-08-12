@@ -1,21 +1,23 @@
- # eslint-falopa
+ # eslint-config-goncy
 
 CLI para configurar rápidamente ESLint + Prettier (Flat Config) en proyectos Next.js o Vite.
  
  Reglas de configuración inspiradas en Goncy.
+
+
 
 ## Uso rápido
 
 Ejecuta el CLI en la raíz de tu proyecto con tu gestor preferido:
 
 ```bash
-npx eslint-falopa
+npx eslint-config-goncy
 # o
-pnpm dlx eslint-falopa
+pnpm dlx eslint-config-goncy
 # o
-yarn dlx eslint-falopa
+yarn dlx eslint-config-goncy
 # o
-bunx eslint-falopa
+bunx eslint-config-goncy
 ```
 
 El asistente te pedirá el framework (`nextjs` | `vite`) y hará la configuración automáticamente.

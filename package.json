@@ -1,8 +1,9 @@
 {
-  "name": "eslint-falopa",
+  "name": "eslint-config-goncy",
   "version": "1.0.2",
   "type": "module",
   "bin": {
+    "eslint-config-goncy": "bin/index.js",
     "eslint-falopa": "bin/index.js"
   },
   "files": [
@@ -20,17 +21,17 @@
     "config",
     "cli"
   ],
-  "author": "",
+  "author": "efe13dev",
   "license": "ISC",
-  "description": "",
+  "description": "Configuración de ESLint + Prettier inspirada en Goncy con un CLI para proyectos Next.js o Vite.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/efe13dev/eslint-falopa.git"
+    "url": "git+https://github.com/efe13dev/eslint-config-goncy.git"
   },
   "bugs": {
-    "url": "https://github.com/efe13dev/eslint-falopa/issues"
+    "url": "https://github.com/efe13dev/eslint-config-goncy/issues"
   },
-  "homepage": "https://github.com/efe13dev/eslint-falopa#readme",
+  "homepage": "https://github.com/efe13dev/eslint-config-goncy#readme",
   "dependencies": {
     "chalk": "^5.3.0",
     "inquirer": "^9.0.0",
