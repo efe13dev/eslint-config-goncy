@@ -3,8 +3,7 @@
   "version": "1.0.2",
   "type": "module",
   "bin": {
-    "eslint-config-goncy": "bin/index.js",
-    "eslint-falopa": "bin/index.js"
+    "eslint-config-goncy": "bin/index.js"
   },
   "files": [
     "bin/",
