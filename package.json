@@ -1,12 +1,42 @@
 {
   "name": "eslint-falopa",
   "version": "1.0.0",
-  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "eslint-falopa": "bin/index.js"
+  },
+  "files": [
+    "bin/",
+    "README.md"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "eslint",
+    "prettier",
+    "nextjs",
+    "vite",
+    "config",
+    "cli"
+  ],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/efe13dev/eslint-falopa.git"
+  },
+  "bugs": {
+    "url": "https://github.com/efe13dev/eslint-falopa/issues"
+  },
+  "homepage": "https://github.com/efe13dev/eslint-falopa#readme",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "inquirer": "^9.0.0",
+    "ora": "^6.3.1"
+  },
+  "engines": {
+    "node": ">=18"
+  }
 }

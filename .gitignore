@@ -1,0 +1,14 @@
+# Dependencias
+node_modules/
+
+# Paquetes generados por npm pack
+eslint-falopa-*.tgz
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# SO / editor
+.DS_Store
