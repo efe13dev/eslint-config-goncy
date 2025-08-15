@@ -1,6 +1,6 @@
  # eslint-config-goncy
 
-CLI para configurar rápidamente ESLint + Prettier (Flat Config) en proyectos Next.js o Vite.
+CLI para configurar rápidamente ESLint + Prettier (Flat Config) en proyectos Next.js, Vite o backend-ts (Node/TypeScript).
  
  Reglas de configuración inspiradas en Goncy.
 
@@ -20,11 +20,16 @@ yarn dlx eslint-config-goncy
 bunx eslint-config-goncy
 ```
 
-El asistente te pedirá el framework (`nextjs` | `vite`) y hará la configuración automáticamente.
+El asistente te pedirá el framework (`nextjs` | `vite` | `backend-ts`) y hará la configuración automáticamente.
 
 ### Nota para proyectos Vite
 
 Si tu proyecto fue creado con Vite, elimina el archivo `eslint.config.js` que Vite genera por defecto. Este CLI creará `eslint.config.mjs` (Flat Config).
+
+### Nota para proyectos backend-ts
+
+- Asegúrate de tener un `tsconfig.json` en la raíz del proyecto; el preset usa lint con información de tipos (`parserOptions.project`).
+- El preset apunta a entornos Node.js y también habilita APIs de `serviceworker` (para soportar `fetch`, `Request`, `Response` en runtimes tipo Bun/Workers si fuese necesario).
 
 ## Requisitos
 

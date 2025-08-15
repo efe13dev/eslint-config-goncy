@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-goncy",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "type": "module",
   "bin": {
     "eslint-config-goncy": "bin/index.js"
@@ -17,12 +17,16 @@
     "prettier",
     "nextjs",
     "vite",
+    "backend",
+    "backend-ts",
+    "node",
+    "typescript",
     "config",
     "cli"
   ],
   "author": "efe13dev",
   "license": "ISC",
-  "description": "Configuración de ESLint + Prettier inspirada en Goncy con un CLI para proyectos Next.js o Vite.",
+  "description": "Configuración de ESLint + Prettier inspirada en Goncy con un CLI para proyectos Next.js, Vite y backend-ts (Node/TypeScript).",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/efe13dev/eslint-config-goncy.git"
