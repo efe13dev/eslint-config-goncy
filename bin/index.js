@@ -474,7 +474,7 @@ async function main() {
     type: "list",
     name: "framework",
     message: "Selecciona el framework de tu proyecto",
-    choices: ["nextjs", "vite", "backend-ts"],
+    choices: ["nextjs", { name: "react-ts + vite", value: "vite" }, "backend-ts"],
     default: "nextjs",
   });
 
