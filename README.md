@@ -20,7 +20,7 @@ yarn dlx eslint-config-goncy
 bunx eslint-config-goncy
 ```
 
-El asistente te pedirá el framework (`nextjs` | `vite` | `backend-ts`) y hará la configuración automáticamente.
+El CLI intentará detectar el framework automáticamente. Si no puede detectarlo (o es ambiguo), te pedirá que selecciones uno (`nextjs` | `vite` | `backend-ts`) y hará la configuración automáticamente.
 
 ### Nota para proyectos Vite
 
