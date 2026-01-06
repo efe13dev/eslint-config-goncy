@@ -464,19 +464,91 @@ function detectarGestorPaquetes() {
   return "npm";
 }
 
+function readPackageJson() {
+  const pkgPath = "package.json";
+
+  if (!fs.existsSync(pkgPath)) return null;
+
+  try {
+    return JSON.parse(fs.readFileSync(pkgPath, "utf8"));
+  } catch {
+    return null;
+  }
+}
+
+function detectFramework() {
+  const pkg = readPackageJson();
+  const allDeps = {
+    ...(pkg?.dependencies || {}),
+    ...(pkg?.devDependencies || {}),
+  };
+
+  const hasDep = (name) => Boolean(allDeps[name]);
+
+  const hasNextConfig =
+    fs.existsSync("next.config.js") ||
+    fs.existsSync("next.config.mjs") ||
+    fs.existsSync("next.config.ts");
+  const hasViteConfig =
+    fs.existsSync("vite.config.js") ||
+    fs.existsSync("vite.config.mjs") ||
+    fs.existsSync("vite.config.ts");
+  const hasTsconfig = fs.existsSync("tsconfig.json");
+
+  const candidates = new Set();
+
+  if (hasDep("next") || hasNextConfig) candidates.add("nextjs");
+
+  if (
+    hasDep("vite") ||
+    hasViteConfig ||
+    hasDep("@vitejs/plugin-react") ||
+    hasDep("@vitejs/plugin-react-swc")
+  ) {
+    candidates.add("vite");
+  }
+
+  if (
+    hasTsconfig &&
+    (hasDep("typescript") || hasDep("@types/node") || hasDep("ts-node") || hasDep("tsx"))
+  ) {
+    candidates.add("backend-ts");
+  }
+
+  if (candidates.has("nextjs")) {
+    candidates.delete("vite");
+    candidates.delete("backend-ts");
+  }
+
+  if (candidates.has("vite")) {
+    candidates.delete("backend-ts");
+  }
+
+  if (candidates.size === 1) return [...candidates][0];
+  return null;
+}
+
 async function main() {
   console.log(chalk.bold.blue("\n🚀 Configurador ESLint personalizado\n"));
 
   const packageManager = detectarGestorPaquetes();
   console.log(chalk.green(`Detectado gestor de paquetes: ${packageManager}`));
 
-  const { framework } = await inquirer.prompt({
-    type: "list",
-    name: "framework",
-    message: "Selecciona el framework de tu proyecto",
-    choices: ["nextjs", { name: "react-ts + vite", value: "vite" }, "backend-ts"],
-    default: "nextjs",
-  });
+  const detectedFramework = detectFramework();
+  let framework = detectedFramework;
+
+  if (framework) {
+    console.log(chalk.green(`Framework detectado: ${framework}`));
+  } else {
+    const response = await inquirer.prompt({
+      type: "list",
+      name: "framework",
+      message: "Selecciona el framework de tu proyecto",
+      choices: ["nextjs", { name: "react-ts + vite", value: "vite" }, "backend-ts"],
+      default: "nextjs",
+    });
+    framework = response.framework;
+  }
 
   const spinner = ora("Instalando dependencias...").start();
 
